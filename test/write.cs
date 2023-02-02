@@ -2,6 +2,10 @@
 // Date: 01/25/2023 || ⓒ copyright all rights reserved, BYU-I CSE 210
 // This is part of the abstraction project.
 // --Celeste: Create class Write and create random prompt function
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+
 public class Write
 {
     public static void Main()
@@ -13,25 +17,19 @@ public class Write
         cwPrompts[3] = "Today, I was inspired by... ";
         cwPrompts[4] = "How did I give and receive appreciation today? ";
 
-        Dictionary<int, (string prompt, string input)> cwEntries = new Dictionary<int, (string prompt, string input)>();
-        int cwKeyValue = 0;
+        DateTime theCurrentTime = DateTime.Now;
+        string cwDate = theCurrentTime.ToShortDateString();
+        string cwPromptNumber2 = "";
+        string cwUserInput = "";
 
-        while (true)
+        void setPrompt(string prompt)
         {
-            cwKeyValue += 1;
-            Random cwRandomize = new Random();
-            int cwPromptNumber = cwRandomize.Next(4);
-            string cwSelectedPrompt = cwPrompts[cwPromptNumber];
-            Console.WriteLine(cwPrompts[cwPromptNumber]);
-            Console.WriteLine("Write something! Type 0 to finish.");
-            string cwUserEntry = Console.ReadLine();
-            
-            if (string.IsNullOrWhiteSpace(cwUserEntry) && string.IsNullOrWhiteSpace(cwSelectedPrompt) || cwUserEntry == "0")
-            {
-                break;
-            }
+            cwPromptNumber2 = prompt;
+        }
 
-            cwEntries.Add(cwKeyValue, (cwUserEntry, cwSelectedPrompt));
+        void setEntry(string input)
+        {
+            cwUserInput = input;
         }
 
     }
