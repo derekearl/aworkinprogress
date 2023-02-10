@@ -1,3 +1,5 @@
+using System;
+
 private class Word
 {
     private static System.Random random = new System.Random();
@@ -7,4 +9,3 @@ private class Word
         return random.Next(2, 6);
     }
 }
-

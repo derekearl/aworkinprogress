@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World! :)");
+        Reference reference = new Reference();
+        string book = reference.getBook();
+        Console.WriteLine(book);
     }
 }
