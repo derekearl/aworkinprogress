@@ -1,11 +1,11 @@
-using System;
+using Sysytem;
 
-private class Word
+public class Word
 {
     private static System.Random random = new System.Random();
 
-    private static int GenerateRandomNumber()
+    private static GenerateRandomNumber()
     {
-        return random.Next(2, 6);
+        return random.Next(2,6);
     }
 }

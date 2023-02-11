@@ -6,6 +6,23 @@ class Program
     {
         Reference reference = new Reference();
         string book = reference.getBook();
-        Console.WriteLine(book);
+        int chapter = reference.getChapter();
+        int verse = reference.getVerse();
+
+        //
+        Console.WriteLine($"{book} {chapter} {verse}");
+
+        Scripture scipture = new Scripture();
+        string scriptureWords = scipture.getScripture();
+
+        Console.WriteLine(scriptureWords);
+        Console.WriteLine("Press Enter to Continue");
+
+    }
+
+    userInput = Console.ReadLine();
+    if(userInput != "quit")
+    {
+        Console.Clear();
     }
 }

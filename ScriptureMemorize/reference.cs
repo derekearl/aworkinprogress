@@ -3,18 +3,23 @@ using System;
 public class Reference
 {
     private string book;
+
     private int chapter;
+
     private int verse;
-    private int endVerse;
+
+    //private int endVerese;
 
     public Reference()
     {
         book = "2 Nephi";
+
         chapter = 2;
+
         verse = 25;
     }
 
-    public string getBook() 
+    public string getBook()
     {
         return book;
     }
@@ -28,10 +33,4 @@ public class Reference
     {
         return verse;
     }
-
-    public int getEndVerse()
-    {
-        return endVerse();
-    }
 }
-
