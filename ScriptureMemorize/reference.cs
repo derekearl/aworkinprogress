@@ -2,37 +2,37 @@ using System;
 
 public class Reference
 {
-    private string wipbook;
-    private int wipchapter;
-    private int wipverse;
-    private int wipendVerse;
+    private string _wipbook;
+    private int _wipchapter;
+    private int _wipverse;
+    private int _wipendVerse;
 
     public Reference()
     {
-        wipbook = "2 Nephi";
-        wipchapter = 2;
-        wipverse = 24;
-        wipendVerse = 25;
+        _wipbook = "2 Nephi";
+        _wipchapter = 2;
+        _wipverse = 24;
+        _wipendVerse = 25;
     }
 
     public string getBook() 
     {
-        return wipbook;
+        return _wipbook;
     }
 
     public int getChapter()
     {
-        return wipchapter;
+        return _wipchapter;
     }
 
     public int getVerse()
     {
-        return wipverse;
+        return _wipverse;
     }
 
     public int getEndVerse()
     {
-        return wipendVerse;
+        return _wipendVerse;
     }
 }
 
