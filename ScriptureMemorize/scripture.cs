@@ -1,18 +1,25 @@
 using System;
 
-public class Scripture 
+class deReference
 {
-
-    private string _wipscriptureWords;
-
-    public Scripture()
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse;
+    public deReference(string book, int chapter, int verse)
     {
-        _wipscriptureWords = "But behold, all things have been done in the wisdom of him who knoweth all things. Adam fell that men might be; and men are, that they might have joy.";
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+    }
+    public deReference(string book, int chapter, int verse, int endVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = endVerse; 
     }
 
-    public string getScripture()
-    {
-        return _wipscriptureWords;
-    }
-    
+
 }
+

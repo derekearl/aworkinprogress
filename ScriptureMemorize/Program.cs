@@ -1,37 +1,119 @@
-// Logan Ray, Celestia Wilkey, Derek Earl, Vishnu Soranam
-// Date: 02/10/2023 || ⓒ copyright all rights reserved, BYU-I CSE 210
-// This is part of the encapsulation project.
+//Team: AWorkInProgress
+//Members: Logan Ray, Derek Earl, Vishnu Soranam, Celeste Wilkey
+
+
+//Class Scripture: Behavior that is specific to Scriptures is all done by this class, not in other places in the program. 
+//And, this class does not include items or behaviors that do not pertain to it.
+
+//Class Word: A class is present that encapsulates the responsibilities of a Word (including that the Word class is responsible for storing 
+//it's own shown/hidden state). Behavior that is specific to Words is all done by this class, not in other places in the program. And, this 
+//class does not include items or behaviors that do not pertain to it.
+
+//Class Reference: A class is present that encapsulates the responsibilities of a Reference (including handling multiple verses). Behavior that 
+//is specific to References is all done by this class, not in other places in the program. And, this class does not include items or behaviors 
+//that do not pertain to it.
 
 using System;
+using System.Collections.Generic;
 
-class Program
+namespace ScriptureMemorization
 {
-    static void Main(string[] args)
+    class Program
     {
-        Reference reference = new Reference();
-        string wipbook = reference.getBook();
-        int wipchapter = reference.getChapter();
-        int wipverse = reference.getVerse();
-        int wipendVerse = reference.getEndVerse();
-
-        Scripture scripture = new Scripture();
-        string wipscriptureWords = scripture.getScripture();
-
-        string wipuserInput = "";
-        while (wipuserInput != "quit")
+        static void Main(string[] args)
         {
-            Console.WriteLine("Can you memorize this scripture?");
-            Console.WriteLine($"{wipbook} {wipchapter}:{wipverse}-{wipendVerse}");
+            Console.WriteLine("Enter the reference for the scripture: ");
+            string dereference = Console.ReadLine();
+            Console.WriteLine("Enter the text for the scripture: ");
+            string text = Console.ReadLine();
+            string input = "";
+            cwScripture cwscripture = new cwScripture(dereference, text);
+            cwscripture.cwDisplayScripture();
 
-            Console.WriteLine(wipscriptureWords);
-            Console.WriteLine("Press Enter to Continue or type 'quit' to quit.");
+            while (!cwscripture.vsAllWordsHidden())
+            {
+                Console.WriteLine("Press enter to hide more words or type 'quit' to exit");
+                input = Console.ReadLine();
+                if (input.ToLower() == "quit")
+                {
+                    break;
+                }
+                cwscripture.HideWords(1);
+                Console.Clear();
+                cwscripture.cwDisplayScripture();
+            }
+                if(input.ToLower() != "quit")
+                {
+                    Console.WriteLine("Congrats you did it!");
+                }
+                else
+                {
+                   Console.WriteLine("Don't give up try again!"); 
+                }
+        }
+    }
 
-            wipuserInput = Console.ReadLine();
+    class cwScripture
+    {
+        private string deReference;
+        private string detext;
+        private List<string> lrWords;
+        private List<bool> lrIsHidden;
 
-            Console.Clear();
+        public cwScripture(string reference, string text)
+        {
+            this.deReference = reference;
+            this.detext = text;
+            lrWords = new List<string>(text.Split(" "));
+            lrIsHidden = new List<bool>(new bool[lrWords.Count]);
         }
 
-        Console.WriteLine("You did it! Awesome Job!");
+        public void cwDisplayScripture()
+        {
+            Console.WriteLine(deReference);
+            for (int i = 0; i < lrWords.Count; i++)
+            {
+                if (lrIsHidden[i])
+                {
+                    Console.Write("____ ");
+                }
+                else
+                {
+                    Console.Write(lrWords[i] + " ");
+                }
+            }
+            Console.WriteLine();
+        }
 
+        public void HideWords(int count)
+        {
+            int hidden = 0;
+            while (hidden < count && hidden < lrWords.Count)
+            {
+                int index = (new Random()).Next(lrWords.Count);
+                if (!lrIsHidden[index])
+                {
+                    lrIsHidden[index] = true;
+                    hidden++;
+                }
+            }
+
+            if (lrWords.Count == 1 && !lrIsHidden[0])
+            {
+                lrIsHidden[0] = true;
+            }
+        }
+
+        public bool vsAllWordsHidden()
+        {
+            foreach (bool hidden in lrIsHidden)
+            {
+                if (!hidden)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
