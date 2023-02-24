@@ -3,7 +3,7 @@ using System;
 // Date: 02/21/2023 || ⓒ copyright all rights reserved, BYU-I CSE 210
 // This is part of the inheritance project.
 
-namespace mindfulness
+namespace Develop04
 {
     public class Program
     {
