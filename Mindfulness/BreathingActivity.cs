@@ -9,14 +9,13 @@ namespace Develop04
     private int inhale = 4; 
     private int exhale = 6; 
 
-    public void BreathCycle() : base()
+    public void BreathCycle()
     {
-
         // Convert this to a while loop 
         Console.WriteLine("Breathe in...");
-        Activity.spinner(inhale);
+        ShowSpinner(inhale);
         Console.WriteLine("Now breathe out...");
-        Activity.spinner(exhale);
+        ShowSpinner(exhale);
     }
 
         
