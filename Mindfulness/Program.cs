@@ -33,7 +33,7 @@ namespace mindfulness
 
             if (userSelection == "1")
             {
-                Console.WriteLine(activity1.startMessage());
+                Console.WriteLine(activity1.StartMessage());
 
                 Console.WriteLine("How long, in seconds, would you like your session to be?");
                 string userDuration = Console.ReadLine();
@@ -42,11 +42,11 @@ namespace mindfulness
 
                 // Do Activity
 
-                activity1.endMessage();
+                activity1.EndMessage();
             }
             else if (userSelection == "2")
             {
-                Console.WriteLine(activity2.startMessage());
+                Console.WriteLine(activity2.StartMessage());
 
                 Console.WriteLine("How long, in seconds, would you like your session to be?");
                 string userDuration = Console.ReadLine();
@@ -55,11 +55,11 @@ namespace mindfulness
 
                 // Do Activity
 
-                activity2.endMessage();
+                activity2.EndMessage();
             }
             else if (userSelection == "3")
             {
-                Console.WriteLine(activity3.startMessage());
+                Console.WriteLine(activity3.StartMessage());
                 
                 Console.WriteLine("How long, in seconds, would you like your session to be?");
                 string userDuration = Console.ReadLine();
@@ -68,7 +68,7 @@ namespace mindfulness
 
                 // Do Activity
 
-                activity3.endMessage();
+                activity3.EndMessage();
             }
             else
             {

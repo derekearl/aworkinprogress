@@ -1,7 +1,7 @@
 using System;
 // This is the parent class. All of the child classes will use attributes and methods from this class.
 
-namespace mindfulness
+namespace Develop04
 {
     public class Activity
     {
@@ -13,7 +13,7 @@ namespace mindfulness
         private string _description = ""; 
         protected int _duration;
 
-        public string startMessage()
+        public string StartMessage()
         {
             return $"Welcome to the {_activityName}! {_description}";
         }
@@ -48,7 +48,7 @@ namespace mindfulness
             _duration = duration;
         }
 
-        public string endMessage()
+        public string EndMessage()
         {
             return $"Well done! You've finished {_duration} seconds of the {_activityName} activity";
         }

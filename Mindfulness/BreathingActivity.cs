@@ -1,7 +1,7 @@
 using System;
 // This prompts the user to match their breaths to a timer for a specified duration. 
 
-namespace mindfulness
+namespace Develop04
 {
     public class BreathingActivity : Activity
     {
