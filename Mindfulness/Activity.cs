@@ -65,7 +65,7 @@ namespace Develop04
         //     }
         // }
 
-        public void spinner(int seconds) 
+        public void ShowSpinner(int seconds) 
         {
             // DateTime startTime = DateTime.Now;
             // TimeSpan timer = TimeSpan.FromSeconds(seconds); 
