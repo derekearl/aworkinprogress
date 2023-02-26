@@ -43,60 +43,50 @@ namespace Develop04
             return _duration;
         }
 
-        public void SetDuration(int duration) // We are going to prompt the user for this number. It may need to be converted. (Seconds, Milliseconds)
+        public void SetDuration(int duration) 
         {
             _duration = duration;
         }
 
         public string EndMessage()
         {
-            return $"Well done! You've finished {_duration} seconds of the {_activityName} activity";
+            return $"Well done! You've finished {_duration} seconds of the {_activityName}!";
         }
 
         // Methods!
-        // public void countDown(int duration)
-        // {
-        //     DateTime startTime = DateTime.Now;
-        //     TimeSpan timer = TimeSpan.FromSeconds(duration);
-
-        //     while (DateTime.Now - startTime < duration)
-        //     {
-        //         // Run Activity
-        //     }
-        // }
+        public DateTime CountDown(int time)
+        {
+            DateTime startTime = DateTime.Now;
+            TimeSpan seconds = TimeSpan.FromSeconds(time);
+            DateTime endTime = startTime + seconds;
+            return endTime;
+        }
 
         public void ShowSpinner(int seconds) 
         {
-            // DateTime startTime = DateTime.Now;
-            // TimeSpan timer = TimeSpan.FromSeconds(seconds); 
-
-            while (seconds > 0)
+            while (seconds / 2 > 0)
             {
                 Console.Write("|");
-                Thread.Sleep(250);
+                Thread.Sleep(500);
 
                 Console.Write("\b \b"); 
                 Console.Write("/"); 
 
-                Thread.Sleep(250);
+                Thread.Sleep(500);
 
                 Console.Write("\b \b"); 
                 Console.Write("|"); 
 
-                Thread.Sleep(250);
+                Thread.Sleep(500);
 
                 Console.Write("\b \b"); 
                 Console.Write("\\"); 
 
-                Thread.Sleep(250);
+                Thread.Sleep(500);
                 Console.Write("\b \b"); 
 
                 seconds -= seconds;
             }
-
-            // while (DateTime.Now - startTime < timer)
-            // {
-            // }
         }
 
     }

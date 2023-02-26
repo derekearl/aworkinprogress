@@ -9,75 +9,95 @@ namespace Develop04
     {
         static void Main(string[] args)
         {
-            // Menu Options:
-            // Start Breathing Activity
-            // Start Reflecting Activity
-            // Start Listing Activity
-            // Quit
-            Console.WriteLine("What would you like to do? (1-4)");
-            Console.WriteLine("1. Start Breathing Activity");
-            Console.WriteLine("2. Start Reflecting Activity");
-            Console.WriteLine("3. Start Listing Activity");
-            Console.WriteLine("4. Quit");
-            string userSelection = Console.ReadLine();
-
-            // Activities
-            Activity breathing = new Activity();
-            breathing.SetActivityName("Breathing Activity");
-            breathing.SetDescription("For this exercise, you will measure your breathing.");
-
-            Activity reflection = new Activity();
-            reflection.SetActivityName("Reflecting Activity");
-            reflection.SetDescription("For this exercise, you will be given a prompt to reflect upon.");
-
-            Activity listing = new Activity();
-            listing.SetActivityName("Listing Activity");
-            listing.SetDescription("For this exercise, you will list as many responses as you can to the following prompt and question.");
-
-
-            if (userSelection == "1")
+            bool repeat = true;
+            while (repeat == true)
             {
-                Console.WriteLine(breathing.StartMessage());
+                Console.WriteLine("Menu Options:");
+                Console.WriteLine("1. Start Breathing Activity");
+                Console.WriteLine("2. Start Listing Activity");
+                Console.WriteLine("3. Start Reflecting Activity");
+                Console.WriteLine("4. Quit");
 
-                Console.WriteLine("How long, in seconds, would you like your session to be?");
-                string userDuration = Console.ReadLine();
-                int duration = int.Parse(userDuration);
-                breathing.SetDuration(duration);
+                Console.WriteLine("What would you like to do? (1-4)");
+                string userSelection = Console.ReadLine();
 
-                // Do Activity
+                // Activities
+                Activity activity1 = new Activity();
+                activity1.SetActivityName("Breathing Activity");
+                activity1.SetDescription("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
 
-                breathing.EndMessage();
-            }
-            else if (userSelection == "2")
-            {
-                Console.WriteLine(reflection.StartMessage());
+                Activity activity2 = new Activity();
+                activity2.SetActivityName("Reflecting Activity");
+                activity2.SetDescription("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
 
-                Console.WriteLine("How long, in seconds, would you like your session to be?");
-                string userDuration = Console.ReadLine();
-                int duration = int.Parse(userDuration);
-                reflection.SetDuration(duration);
+                Activity activity3 = new Activity();
+                activity3.SetActivityName("Listing Activity");
+                activity3.SetDescription("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
 
-                // Do Activity
+                Activity activity = new Activity();
 
-                reflection.EndMessage();
-            }
-            else if (userSelection == "3")
-            {
-                Console.WriteLine(listing.StartMessage());
-                
-                Console.WriteLine("How long, in seconds, would you like your session to be?");
-                string userDuration = Console.ReadLine();
-                int duration = int.Parse(userDuration);
-                listing.SetDuration(duration);
+                if (userSelection == "1")
+                {
+                    Console.WriteLine(activity1.StartMessage());
 
-                // Do Activity
+                    Console.WriteLine("How long, in seconds, would you like your session to be?");
+                    string userDuration = Console.ReadLine();
+                    int duration = int.Parse(userDuration);
+                    activity1.SetDuration(duration);
 
-                listing.EndMessage();
-            }
-            else
-            {
-                Console.WriteLine("Thank you for using the Mindfulness Activities!");
+                    Console.WriteLine("Get Ready!");
+                    activity.ShowSpinner(8);
 
+                    // Do Activity
+                    DateTime endTime = activity.CountDown(duration);
+                    while (DateTime.Now < endTime)
+                    {
+                        BreathingActivity breathe = new BreathingActivity();
+                        breathe.BreathCycle();
+                    }
+
+                    Console.WriteLine(activity1.EndMessage());
+                }
+                else if (userSelection == "2")
+                {
+                    Console.WriteLine(activity2.StartMessage());
+
+                    Console.WriteLine("How long, in seconds, would you like your session to be?");
+                    string userDuration = Console.ReadLine();
+                    int duration = int.Parse(userDuration);
+                    activity2.SetDuration(duration);
+
+                    // Do Activity
+                    ListingActivity list = new ListingActivity();
+                    
+                    int _responseCount = list.GetPrompt(duration); // duration needs to be converted to DateTime
+                    string responseCount = _responseCount.ToString();
+
+                    if (_responseCount != 0)
+                    {
+                        Console.WriteLine($"Time's up! You listed {responseCount} item!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Time's up! You listed {responseCount} items!");
+                    }
+                    Console.WriteLine(activity2.EndMessage());
+                }
+                else if (userSelection == "3")
+                {                
+                    Console.WriteLine("How long, in seconds, would you like your session to be?");
+                    string userDuration = Console.ReadLine();
+                    int duration = int.Parse(userDuration);
+
+                    // Do Activity
+                    ReflectingActivity reflect = new ReflectingActivity(duration);
+                    reflect.Start();
+                }
+                else
+                {
+                    Console.WriteLine("Thank you for using the Mindfulness Activities!");
+                    repeat = false;
+                }
             }
         }
     }
