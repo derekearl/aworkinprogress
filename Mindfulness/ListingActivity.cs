@@ -5,41 +5,41 @@ namespace Develop04
 {
     public class ListingActivity : Activity
     {
-        string [] prompts = {
+        string [] deprompts = {
         "How did the spirit touch your life today?",
         "What was the highlight of your day?",
         "Why was today good/bad?",
         "When did you do a good thing and see blessings?"
         };
 
-        private string _prompt;
+        private string _deprompt;
 
-        public int GetPrompt(int duration) 
+        public int GetPrompt(int deduration) 
         {
             Random random = new Random();
-            _prompt = prompts[random.Next(0,4)];
+            _deprompt = deprompts[random.Next(0,4)];
             Console.WriteLine("Get ready!");
             ShowSpinner(4);
             Console.WriteLine("List as many responses as you can to the following prompt!");
-            Console.WriteLine(_prompt);
-            int _responseCount = 0;
+            Console.WriteLine(_deprompt);
+            int _deresponseCount = 0;
 
-            DateTime endTime = CountDown(duration);
+            DateTime deendTime = CountDown(deduration);
 
-            while (DateTime.Now < endTime)
+            while (DateTime.Now < deendTime)
             {
-                string userInput;
-                userInput = Console.ReadLine();
-                if (!string.IsNullOrEmpty(userInput))
+                string deuserInput;
+                deuserInput = Console.ReadLine();
+                if (!string.IsNullOrEmpty(deuserInput))
                 {
-                    _responseCount += 1;
+                    _deresponseCount += 1;
                 }
                 else
                 {
                     Console.WriteLine("Write something!");
                 }
             }
-            return _responseCount;
+            return _deresponseCount;
         }
     }
 }

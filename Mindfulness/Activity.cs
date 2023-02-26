@@ -9,62 +9,62 @@ namespace Develop04
         // If protected, it will be open to all children classes automatically.
         // If private, we will need getters and setters.
         
-        private string _activityName = "";
-        private string _description = ""; 
-        protected int _duration;
+        private string _cwactivityName = "";
+        private string _cwdescription = ""; 
+        protected int _cwduration;
 
         public string StartMessage()
         {
-            return $"Welcome to the {_activityName}! {_description}";
+            return $"Welcome to the {_cwactivityName}! {_cwdescription}";
         }
 
         public string GetActivityName()
         {
-            return _activityName;
+            return _cwactivityName;
         }
 
-        public void SetActivityName(string activityName)
+        public void SetActivityName(string cwactivityName)
         {
-            _activityName = activityName;
+            _cwactivityName = cwactivityName;
         }
 
         public string GetDescription()
         {
-            return _description;
+            return _cwdescription;
         }
 
-        public void SetDescription(string description)
+        public void SetDescription(string cwdescription)
         {
-            _description = description;
+            _cwdescription = cwdescription;
         }
         
         public int GetDuration()
         {
-            return _duration;
+            return _cwduration;
         }
 
-        public void SetDuration(int duration) 
+        public void SetDuration(int cwduration) 
         {
-            _duration = duration;
+            _cwduration = cwduration;
         }
 
         public string EndMessage()
         {
-            return $"Well done! You've finished {_duration} seconds of the {_activityName}!";
+            return $"Well done! You've finished {_cwduration} seconds of the {_cwactivityName}!";
         }
 
         // Methods!
-        public DateTime CountDown(int time)
+        public DateTime CountDown(int cwtime)
         {
-            DateTime startTime = DateTime.Now;
-            TimeSpan seconds = TimeSpan.FromSeconds(time);
-            DateTime endTime = startTime + seconds;
-            return endTime;
+            DateTime cwstartTime = DateTime.Now;
+            TimeSpan cwseconds = TimeSpan.FromSeconds(cwtime);
+            DateTime cwendTime = cwstartTime + cwseconds;
+            return cwendTime;
         }
 
-        public void ShowSpinner(int seconds) 
+        public void ShowSpinner(int cwseconds) 
         {
-            while (seconds / 2 > 0)
+            while (cwseconds / 2 > 0)
             {
                 Console.Write("|");
                 Thread.Sleep(500);
@@ -85,7 +85,7 @@ namespace Develop04
                 Thread.Sleep(500);
                 Console.Write("\b \b"); 
 
-                seconds -= seconds;
+                cwseconds -= cwseconds;
             }
         }
 

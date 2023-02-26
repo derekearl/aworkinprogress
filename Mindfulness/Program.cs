@@ -9,8 +9,8 @@ namespace Develop04
     {
         static void Main(string[] args)
         {
-            bool repeat = true;
-            while (repeat == true)
+            bool vsrepeat = true;
+            while (vsrepeat == true)
             {
                 Console.WriteLine("Menu Options:");
                 Console.WriteLine("1. Start Breathing Activity");
@@ -19,7 +19,7 @@ namespace Develop04
                 Console.WriteLine("4. Quit");
 
                 Console.WriteLine("What would you like to do? (1-4)");
-                string userSelection = Console.ReadLine();
+                string vsuserSelection = Console.ReadLine();
 
                 // Activities
                 Activity activity1 = new Activity();
@@ -36,7 +36,7 @@ namespace Develop04
 
                 Activity activity = new Activity();
 
-                if (userSelection == "1")
+                if (vsuserSelection == "1")
                 {
                     Console.WriteLine(activity1.StartMessage());
 
@@ -58,7 +58,7 @@ namespace Develop04
 
                     Console.WriteLine(activity1.EndMessage());
                 }
-                else if (userSelection == "2")
+                else if (vsuserSelection == "2")
                 {
                     Console.WriteLine(activity2.StartMessage());
 
@@ -83,7 +83,7 @@ namespace Develop04
                     }
                     Console.WriteLine(activity2.EndMessage());
                 }
-                else if (userSelection == "3")
+                else if (vsuserSelection == "3")
                 {                
                     Console.WriteLine("How long, in seconds, would you like your session to be?");
                     string userDuration = Console.ReadLine();
@@ -96,7 +96,7 @@ namespace Develop04
                 else
                 {
                     Console.WriteLine("Thank you for using the Mindfulness Activities!");
-                    repeat = false;
+                    vsrepeat = false;
                 }
             }
         }

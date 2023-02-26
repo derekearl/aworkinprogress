@@ -8,15 +8,15 @@ namespace Develop04
 class ReflectingActivity : Activity
     {
         // Declare private fields to store the duration, prompts, questions, and random number generator
-        private int duration;
-        private List<string> prompts = new List<string>()
+        private int lrduration;
+        private List<string> lrprompts = new List<string>()
         {
             "Think of a time when you stood up for someone else.",
             "Think of a time when you did something really difficult.",
             "Think of a time when you helped someone in need.",
             "Think of a time when you did something truly selfless."
         };
-        private List<string> questions = new List<string>()
+        private List<string> lrquestions = new List<string>()
         {
             "Why was this experience meaningful to you?",
             "Have you ever done anything like this before?",
@@ -31,9 +31,9 @@ class ReflectingActivity : Activity
         private Random rand = new Random();
 
         // Define a constructor that takes a duration argument
-        public ReflectingActivity(int duration)
+        public ReflectingActivity(int lrduration)
         {
-            this.duration = duration;
+            this.lrduration = lrduration;
         }
 
         // Define a Start method to begin the activity
@@ -41,28 +41,28 @@ class ReflectingActivity : Activity
         {
             // // Display starting message and prompt for duration
             Console.WriteLine("Welcome to the Reflection activity!");
-            Console.WriteLine($"You will have {duration} seconds to reflect on times in your life when you have shown strength and resilience.");
+            Console.WriteLine($"You will have {lrduration} seconds to reflect on times in your life when you have shown strength and resilience.");
             Console.WriteLine("This will help you recognize the power you have and how you can use it in other aspects of your life.\n");
             Console.WriteLine("Get Ready!");
             ShowSpinner(4);
 
             // // Calculate the end time for the activity based on the duration
-            DateTime startTime = DateTime.Now;
-            DateTime endTime = startTime.AddSeconds(duration);
+            DateTime lrstartTime = DateTime.Now;
+            DateTime lrendTime = lrstartTime.AddSeconds(lrduration);
 
             // // Loop until the end time is reached
-            while (DateTime.Now < endTime)
+            while (DateTime.Now < lrendTime)
             {
                 // Select a random prompt and display it to the user
-                string prompt = prompts[rand.Next(prompts.Count)];
-                Console.WriteLine(prompt);
+                string lrprompt = lrprompts[rand.Next(lrprompts.Count)];
+                Console.WriteLine(lrprompt);
                 Thread.Sleep(1500); // pause for 1.5 seconds
 
                 // Loop through the questions and display each one to the user
-                foreach (string question in questions)
+                foreach (string lrquestion in lrquestions)
                 {
                     Console.Write("- ");
-                    Console.WriteLine(question);
+                    Console.WriteLine(lrquestion);
                     Thread.Sleep(1500); // pause for 1.5 seconds
                 }
             }

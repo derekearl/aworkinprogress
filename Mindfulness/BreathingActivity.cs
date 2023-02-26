@@ -5,8 +5,8 @@ namespace Develop04
 {
     public class BreathingActivity : Activity
     {
-        private int inhale = 4; 
-        private int exhale = 6; 
+        private int cwinhale = 4; 
+        private int cwexhale = 6; 
 
         public void BreathCycle()
         {
@@ -14,9 +14,9 @@ namespace Develop04
             // while (DateTime.Now < endTime)
             {
                 Console.WriteLine("Breathe in...");
-                ShowSpinner(inhale);
+                ShowSpinner(cwinhale);
                 Console.WriteLine("Now breathe out...");
-                ShowSpinner(exhale);
+                ShowSpinner(cwexhale);
             }
         }
 
