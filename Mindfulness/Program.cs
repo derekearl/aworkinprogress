@@ -15,12 +15,16 @@ namespace Develop04
             // Start Listing Activity
             // Quit
             Console.WriteLine("What would you like to do? (1-4)");
+            Console.WriteLine("1. Start Breathing Activity");
+            Console.WriteLine("2. Start Reflecting Activity");
+            Console.WriteLine("3. Start Listing Activity");
+            Console.WriteLine("4. Quit");
             string userSelection = Console.ReadLine();
 
             // Activities
-            Activity activity1 = new Activity();
-            activity1.SetActivityName("Breathing Activity");
-            activity1.SetDescription("For this exercise, you will measure your breathing.");
+            BreathingActivity breathing = new BreathingActivity();
+            breathing.SetActivityName("Breathing Activity");
+            breathing.SetDescription("For this exercise, you will measure your breathing.");
 
             Activity activity2 = new Activity();
             activity2.SetActivityName("Reflecting Activity");
@@ -33,16 +37,16 @@ namespace Develop04
 
             if (userSelection == "1")
             {
-                Console.WriteLine(activity1.StartMessage());
+                Console.WriteLine(breathing.StartMessage());
 
                 Console.WriteLine("How long, in seconds, would you like your session to be?");
                 string userDuration = Console.ReadLine();
                 int duration = int.Parse(userDuration);
-                activity1.SetDuration(duration);
+                breathing.SetDuration(duration);
 
                 // Do Activity
 
-                activity1.EndMessage();
+                breathing.EndMessage();
             }
             else if (userSelection == "2")
             {
