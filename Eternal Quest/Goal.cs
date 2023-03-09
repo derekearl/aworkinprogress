@@ -4,21 +4,21 @@ namespace Develop05
 {
     public class Goal
     {
-        private string _vsGoalName = "";
-        private string _vsDescription = "";
-        private int _vsGoalPoints;
-        private int _vsTotalPoints;
-        private int _vsPointsEarned;
+        private string GoalName = "";
+        private string Description = "";
+        private int GoalPoints;
+        private int TotalPoints;
+        private int PointsEarned;
         private bool isCompleted;
 
         public string StartMessage()
         {
-            return $"Your goal is {_vsGoalName} and its description is {_vsDescription}";
+            return $"Your goal is {GoalName} and its description is {Description}";
         }
         public virtual int AddPoints()
         {
-            _vsTotalPoints = _vsPointsEarned + _vsGoalPoints;
-            return _vsTotalPoints;
+            TotalPoints = PointsEarned + GoalPoints;
+            return TotalPoints;
         }
         public virtual int RecordEvent(string fileName)
         {
@@ -26,8 +26,8 @@ namespace Develop05
             {
                 if (isCompleted)
                 {
-                    _vsPointsEarned += _vsGoalPoints;
-                    return _vsGoalPoints;
+                    PointsEarned += GoalPoints;
+                    return GoalPoints;
                 }
                 return 0;
             }
