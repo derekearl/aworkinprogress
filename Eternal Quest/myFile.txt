@@ -13,3 +13,4 @@ Type of goal | Goal | Description of goal | Points when completed
 ChecklistGoal,Attend the temple,Attend and perform any ordinance,50,500,3,0
 Type of goal | Goal | Description of goal | Points when completed | Point when acheived certain amount of times | 
 Number of times for bonus | Current amount completed
+[ ] Attend the temple (Attend and perform an ordinance) -- Currently completed: 0/3
