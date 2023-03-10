@@ -2,44 +2,58 @@ using System;
 
 namespace Develop05
 {
-    public class Goal
+    public abstract class Goal
     {
-        private string GoalName = "";
-        private string Description = "";
-        private int GoalPoints;
-        private int TotalPoints;
-        private int PointsEarned;
-        private bool isCompleted;
+        private string _GoalName = "";
+        private string _Description = "";
+        private int _GoalPoints;
+        private int _TotalPoints;
+        private bool _isCompleted;
 
+        // Constructor. This function is called upon the creation of a goal.
         public string StartMessage()
         {
-            return $"Your goal is {GoalName} and its description is {Description}";
+            return $"Your goal is {_GoalName} and its description is {_Description}";
         }
-        public virtual int AddPoints()
+        public string GetDescription()
         {
-            TotalPoints = PointsEarned + GoalPoints;
-            return TotalPoints;
+            return _Description;
         }
+
+        public string GetGoalName()
+        {
+            return _GoalName;
+        }
+
+        public int GetGoalPoints()
+        {
+            return _GoalPoints;
+        }
+        
+        public void SetGoalName(string GoalName)
+        {
+            _GoalName = GoalName;
+        }
+        
+        public void SetDescription(string Description)
+        {
+            _Description = Description;
+        }
+        
+        public void SetGoalPoints(int GoalPoints)
+        {
+            _GoalPoints = GoalPoints;
+        }
+        public abstract int AddPoints(int pointsEarned, int totalPoints);
+
         public virtual int RecordEvent(string fileName)
         {
-            if (!isCompleted)
-            {
-                if (isCompleted)
-                {
-                    PointsEarned += GoalPoints;
-                    return GoalPoints;
-                }
-                return 0;
-            }
-            return 0;
+            if (!_isCompleted) {return 0;}
+            
+            // _vsPointsEarned += _vsGoalPoints;
+            return _GoalPoints;
         }
-        public bool IsCompleted()
-        {
-            if (isCompleted);
-            {
-                return true;
-            }
-        }
+        public bool IsCompleted() {return _isCompleted;}
 
     }
 }
