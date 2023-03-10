@@ -1,0 +1,15 @@
+0
+Total Point
+
+SimpleGoal,Give a talk,Speak in Sacrament meeting when asked,100,0
+Type of goal | Goal | Description of goal | Points when completed | Has it been completed 0 = not complete
+Display as 
+[ ] Give a talk (Speak in Sacrament meeting when asked)
+
+EternalGoal,Study the scriptures,Study for at least 10 minutes,50
+Type of goal | Goal | Description of goal | Points when completed
+[ ] Study the scriptures (Study for at least 10 minutes)
+
+ChecklistGoal,Attend the temple,Attend and perform any ordinance,50,500,3,0
+Type of goal | Goal | Description of goal | Points when completed | Point when acheived certain amount of times | 
+Number of times for bonus | Current amount completed
