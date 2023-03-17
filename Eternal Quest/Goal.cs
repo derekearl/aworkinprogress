@@ -45,15 +45,12 @@ namespace Develop05
             _GoalPoints = GoalPoints;
         }
         public abstract int AddPoints(int pointsEarned, int totalPoints);
-
+        
         public virtual int RecordEvent(string fileName)
         {
             if (!_isCompleted) {return 0;}
-            
-            // _vsPointsEarned += _vsGoalPoints;
             return _GoalPoints;
         }
         public bool IsCompleted() {return _isCompleted;}
-
     }
 }
