@@ -1,5 +1,5 @@
 // Set the filename of the input file
-string filename = "goals.txt";
+string filename = "myFile.txt";
 
 // Create two lists to store the goals and numbers from the input file
 List<string> goals = new List<string>();
